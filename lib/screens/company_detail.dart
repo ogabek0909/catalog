@@ -32,7 +32,32 @@ class CompanyDetail extends StatelessWidget {
                 children: [
                   const MenuBarWidget(),
                   if (MediaQuery.of(context).size.width > 1271)
-                    const Expanded(child: CompanyProduct())
+                    const SizedBox(width: 55),
+                  if (MediaQuery.of(context).size.width > 1271)
+                    Expanded(
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Mahsulotlari',
+                          style: TextStyle(
+                            color: Color.fromRGBO(137, 127, 127, 1),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        CompanyProduct(),
+                        Text(
+                          'Zaruriy xom ashyolar',
+                          style: TextStyle(
+                            color: Color.fromRGBO(137, 127, 127, 1),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        CompanyProduct(),
+                      ],
+                    ))
                 ],
               ),
             ),

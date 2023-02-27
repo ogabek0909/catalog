@@ -1,4 +1,5 @@
 import 'package:catalog/providers/get_all_category.dart';
+import 'package:catalog/screens/category_screen.dart';
 import 'package:catalog/screens/company_detail.dart';
 import 'package:catalog/screens/home_screen.dart';
 import 'package:catalog/screens/login_screen.dart';
