@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppbarWidget extends StatelessWidget {
   const AppbarWidget({
@@ -59,7 +60,6 @@ class AppbarWidget extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: 'Search...',
                       border: InputBorder.none,
-                      
                       prefixIcon: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: DropdownButton(
@@ -98,7 +98,9 @@ class AppbarWidget extends StatelessWidget {
                     ),
                     const SizedBox(width: 31),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.goNamed('/login');
+                      },
                       child: Row(
                         children: const [
                           Icon(
