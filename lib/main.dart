@@ -2,6 +2,8 @@ import 'package:catalog/providers/get_all_category.dart';
 import 'package:catalog/screens/category_screen.dart';
 import 'package:catalog/screens/company_detail.dart';
 import 'package:catalog/screens/home_screen.dart';
+import 'package:catalog/screens/login_screen.dart';
+import 'package:catalog/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
           textTheme:
               const TextTheme(titleSmall: TextStyle(color: Colors.black))),
       routerConfig: GoRouter(
-        initialLocation: '/category',
+        initialLocation: '/',
         routes: [
           GoRoute(
             path: '/',
@@ -42,9 +44,14 @@ class MyApp extends StatelessWidget {
             builder: (context, state) => const CompanyDetail(),
           ),
           GoRoute(
-            path: '/category',
-            name: CategoryScreen.routeName,
-            builder: (context, state) => const CategoryScreen(),
+            path: '/register',
+            name: RegisterScreen.routeName,
+            builder: (context, state) => const RegisterScreen(),
+          ),
+          GoRoute(
+            path: '/login',
+            name: LoginScreen.routeName,
+            builder: (context, state) => const LoginScreen(),
           ),
         ],
       ),
