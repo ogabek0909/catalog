@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class SliderAfishaWidgets extends StatefulWidget {
@@ -56,49 +54,68 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: 33,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    // border: Border.all()
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromRGBO(0, 124, 216, .6)
-                                        .withOpacity(.8),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: const [
-                                      Icon(
-                                        Icons.calendar_today,
-                                        color: Colors.black,
-                                        size: 18,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin:
+                                    const EdgeInsets.only(top: 30, left: 30),
+                                height: 33,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  // border: Border.all()
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: const Color.fromRGBO(0, 124, 216, .6)
+                                      .withOpacity(.8),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: const [
+                                    Icon(
+                                      Icons.calendar_today,
+                                      color: Colors.black,
+                                      size: 18,
+                                    ),
+                                    // SizedBox(width: 5),
+                                    Text(
+                                      '01.02.2023',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      // SizedBox(width: 5),
-                                      Text(
-                                        '01.02.2023',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 30, horizontal: 30),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    end: Alignment.topCenter,
+                                    begin: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.black,
+                                      Color.fromARGB(0, 0, 0, 0),
                                     ],
                                   ),
                                 ),
-                                Row(
+                                child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      "To'qimachilik va yengil sanoat",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 30),
+                                    Expanded(
+                                      child: Container(
+                                        child: const Text(
+                                          "To'qimachilik va yengil sanoat",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 30),
+                                        ),
+                                      ),
                                     ),
                                     Row(
                                       children: [
@@ -126,8 +143,8 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           )
                         ],
                       ),
@@ -144,7 +161,9 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
               ],
             ),
           ),
-          if (MediaQuery.of(context).size.width < 1271) Afisha(),
+          if (MediaQuery.of(context).size.width < 1271)
+            const SizedBox(height: 35),
+          if (MediaQuery.of(context).size.width < 1271) const Afisha(),
         ],
       ),
     );
@@ -157,9 +176,9 @@ class Afisha extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext Flexiblecontext) {
+  Widget build(BuildContext context) {
     return Container(
-      width: 445,
+      width: double.infinity,
       height: 522,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -171,56 +190,60 @@ class Afisha extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(
-                colors: [
-                  Colors.black.withOpacity(.2),
-                  Colors.black.withOpacity(.5),
-                ],
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                height: 33,
+                width: 108,
+                margin: const EdgeInsets.all(30),
+                decoration: BoxDecoration(
+                  // border: Border.all()
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromRGBO(0, 124, 216, .6).withOpacity(.8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    Icon(
+                      Icons.announcement_outlined,
+                      color: Colors.black,
+                      size: 18,
+                    ),
+                    // SizedBox(width: 5),
+                    Text(
+                      'E\'lon',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 33,
-                  width: 108,
-                  decoration: BoxDecoration(
-                    // border: Border.all()
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color.fromRGBO(0, 124, 216, .6).withOpacity(.8),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
-                        Icons.announcement_outlined,
-                        color: Colors.black,
-                        size: 18,
-                      ),
-                      // SizedBox(width: 5),
-                      Text(
-                        'E\'lon',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(30),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    end: Alignment.topCenter,
+                    begin: Alignment.bottomCenter,
+                    colors: [
+                      Colors.black,
+                      Color.fromARGB(0, 0, 0, 0),
                     ],
                   ),
                 ),
-                Text(
+                child: const Text(
                   "To'qimachilik va yengil sanoat",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),

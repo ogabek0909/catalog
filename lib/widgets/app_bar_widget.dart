@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Appbar extends StatelessWidget {
-  const Appbar({
+class AppbarWidget extends StatelessWidget {
+  const AppbarWidget({
     super.key,
   });
 

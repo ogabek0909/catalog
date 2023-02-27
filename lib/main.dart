@@ -1,9 +1,19 @@
+import 'package:catalog/providers/get_all_category.dart';
+import 'package:catalog/screens/company_detail.dart';
 import 'package:catalog/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => GetAllCategory()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,16 +25,20 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           // primarySwatch: Colors.blue,
-            textTheme: TextTheme(
-              titleSmall: TextStyle(color: Colors.black)
-            )
-          ),
+          textTheme:
+              const TextTheme(titleSmall: TextStyle(color: Colors.black))),
       routerConfig: GoRouter(
+        initialLocation: '/company',
         routes: [
           GoRoute(
             path: '/',
             name: HomeScreen.routeName,
             builder: (context, state) => const HomeScreen(),
+          ),
+          GoRoute(
+            path: '/company',
+            name: CompanyDetail.routeName,
+            builder: (context, state) => const CompanyDetail(),
           ),
         ],
       ),
