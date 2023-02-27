@@ -21,7 +21,7 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 55),
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: [
           SizedBox(
