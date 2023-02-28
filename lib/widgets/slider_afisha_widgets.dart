@@ -68,7 +68,7 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
                                   decoration: BoxDecoration(
                                     // border: Border.all()
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromRGBO(0, 124, 216, .6)
+                                    color:const  Color.fromRGBO(0, 124, 216, .6)
                                         .withOpacity(.8),
                                   ),
                                   child: Row(

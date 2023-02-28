@@ -195,7 +195,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                         const SizedBox(width: 10),
                         IconButton(
                           onPressed: () {},
-                          icon: const Icon(Icons.whatsapp, color: Colors.white),
+                          icon: const Icon(Icons.facebook)
                         ),
                       ],
                     ),
