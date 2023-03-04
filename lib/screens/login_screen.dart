@@ -1,3 +1,4 @@
+import 'package:catalog/screens/register_screen.dart';
 import 'package:catalog/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -6,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static const routeName = '/login';
+  static const routeName = 'login-screen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -62,30 +63,35 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 40,
                   ),
-                  SizedBox(
-                    width: 150,
-                    height: 45,
-                    child: FilledButton(
-                      onPressed: () {
-                        context.goNamed('/register');
-                      },
-                      child: const Text('Ro\'yxatdan o\'tish'),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 150,
-                    height: 45,
-                    child: FilledButton(
-                      onPressed: () {
-                        if (!_formKey.currentState!.validate()) {
-                          return;
-                        }
-                      },
-                      child: const Text('Kirish'),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        height: 45,
+                        child: FilledButton(
+                          onPressed: () {
+                            context.goNamed(RegisterScreen.routeName);
+                          },
+                          child: const Text('Ro\'yxatdan o\'tish'),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      SizedBox(
+                        width: 150,
+                        height: 45,
+                        child: FilledButton(
+                          onPressed: () {
+                            if (!_formKey.currentState!.validate()) {
+                              return;
+                            }
+                          },
+                          child: const Text('Kirish'),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -93,36 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            MediaQuery.of(context).size.width > 900
-                ? Expanded(
-                    child: Container(
-                      color: Colors.blue,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.network(
-                              'https://telegra.ph/file/276e293154d27c194cc8c.png'),
-                          const Text(
-                            'Xush kelibsiz!',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const Text(
-                            'Samarqandga!',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : Container(),
+            if (MediaQuery.of(context).size.width > 900)
+              const Expanded(child: LoginLogoWidget()),
           ],
         ),
       ),

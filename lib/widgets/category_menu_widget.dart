@@ -1,4 +1,6 @@
+import 'package:catalog/providers/home_screen_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CategoryMenuWidget extends StatelessWidget {
   const CategoryMenuWidget({super.key});
@@ -29,12 +31,12 @@ class CategoryMenuWidget extends StatelessWidget {
                   separatorBuilder: (context, index) => const Divider(
                     height: 0,
                   ),
-                  itemCount: 11,
-                  itemBuilder: (context, index) => const ListTile(
+                  itemCount: Provider.of<HomeScreenProvider>(context,listen: false).allCategories.length,
+                  itemBuilder: (context, index) =>  ListTile(
                     minVerticalPadding: 0,
                     title: Text(
-                      'Category name',
-                      style: TextStyle(
+                      Provider.of<HomeScreenProvider>(context).allCategories[index].name,
+                      style: const TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -1,11 +1,14 @@
+import 'package:catalog/screens/category_screen.dart';
+import 'package:catalog/widgets/category_detail_widget.dart';
+
 import '../models/category.dart';
 import 'package:catalog/screens/company_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CompanyItem extends StatelessWidget {
+class CategoryItemWidget extends StatelessWidget {
   final Category item;
-  const CompanyItem({super.key, required this.item});
+  const CategoryItemWidget({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class CompanyItem extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              context.goNamed(CompanyDetail.routeName);
+              context.goNamed(CategoryScreen.routeName);
             },
             child: Card(
               elevation: 10,
@@ -28,19 +31,31 @@ class CompanyItem extends StatelessWidget {
                       ? MediaQuery.of(context).size.width / 4
                       : MediaQuery.of(context).size.width - 120,
                   decoration: BoxDecoration(
+                    color: Colors.white54,
                     borderRadius: BorderRadius.circular(10),
                     // color: Colors.blue,
                     image: DecorationImage(
                       image: NetworkImage(
-                        item.categoryimages[0] ??
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WCSksMD_tiMuaUoUz51BrApdhoCGYQhtyO6dIJ_xQjC6-hCGOkpCzwb7aXQKLS8OzBg&usqp=CAU',
+                        item.categoryimages,
                       ),
+                      fit: BoxFit.fill,
+                      // repeat: ImageRepeat.repeatX,
                     ),
                   ),
                   padding: const EdgeInsets.only(
                       top: 40, left: 40, right: 10, bottom: 10),
                   child: Column(
-                    children: [Text(item.name)],
+                    children: [
+                      Text(
+                        item.name.toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 2,
+                        ),
+                      )
+                    ],
                   )),
             ),
           ),
@@ -92,7 +107,7 @@ class CompanyItem extends StatelessWidget {
               ),
             ],
           ),
-          Text('Women shoes')
+          const Text('Women shoes')
         ],
       ),
     );

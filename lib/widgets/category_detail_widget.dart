@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+class CategoryDetailWidget extends StatelessWidget {
+  const CategoryDetailWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class CategoryItem extends StatelessWidget {
           image: NetworkImage(
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WCSksMD_tiMuaUoUz51BrApdhoCGYQhtyO6dIJ_xQjC6-hCGOkpCzwb7aXQKLS8OzBg&usqp=CAU',
           ),
-          fit: BoxFit.cover
+          fit: BoxFit.cover,
         ),
       ),
       alignment: Alignment.bottomLeft,

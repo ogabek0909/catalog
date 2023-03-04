@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-  static const routeName = '/register';
+  static const routeName = 'register-screen';
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -200,38 +200,54 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-            MediaQuery.of(context).size.width > 900
-                ? Expanded(
-                    child: Container(
-                      color: Colors.blue,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.network(
-                              'https://telegra.ph/file/276e293154d27c194cc8c.png'),
-                          Text(
-                            'Xush kelibsiz!',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            'Samarqandga!',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : Container(),
+            if (MediaQuery.of(context).size.width > 900)
+              const Expanded(child: LoginLogoWidget()),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LoginLogoWidget extends StatelessWidget {
+  const LoginLogoWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.network(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WCSksMD_tiMuaUoUz51BrApdhoCGYQhtyO6dIJ_xQjC6-hCGOkpCzwb7aXQKLS8OzBg&usqp=CAU',
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'Xush kelibsiz!',
+            style: TextStyle(
+              fontSize: 35,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 2,
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'Samarqandga!',
+            style: TextStyle(
+              fontSize: 35,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 2,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -13,11 +13,11 @@ class CompanyDetail extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const AppbarWidget(),
+          const AppBarWidget(),
           const SliverToBoxAdapter(
             child: Divider(),
           ),
-          const SliverToBoxAdapter(child: TabBarWidget()),
+          const SliverToBoxAdapter(child: TapBarWidget()),
           const SliverToBoxAdapter(
             child: Divider(),
           ),
@@ -35,29 +35,30 @@ class CompanyDetail extends StatelessWidget {
                     const SizedBox(width: 55),
                   if (MediaQuery.of(context).size.width > 1271)
                     Expanded(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Mahsulotlari',
-                          style: TextStyle(
-                            color: Color.fromRGBO(137, 127, 127, 1),
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Mahsulotlari',
+                            style: TextStyle(
+                              color: Color.fromRGBO(137, 127, 127, 1),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        CompanyProduct(),
-                        Text(
-                          'Zaruriy xom ashyolar',
-                          style: TextStyle(
-                            color: Color.fromRGBO(137, 127, 127, 1),
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
+                          CompanyProduct(),
+                          Text(
+                            'Zaruriy xom ashyolar',
+                            style: TextStyle(
+                              color: Color.fromRGBO(137, 127, 127, 1),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        CompanyProduct(),
-                      ],
-                    ))
+                          CompanyProduct(),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             ),

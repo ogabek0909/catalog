@@ -1,36 +1,48 @@
+import 'package:catalog/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class TabBarWidget extends StatelessWidget {
-  const TabBarWidget({super.key});
+class TapBarWidget extends StatelessWidget {
+  const TapBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 55,vertical: 5),
+      padding:  EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width > 800 ? 55 : 10, vertical: 5),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            txtButton('Asosiy sahifa'),
-            txtButton('Ishlab chiqaruvchilar'),
-            txtButton('Mahsulotlar'),
-            txtButton('Yangiliklar'),
-            txtButton('Slider'),
-            txtButton('Afisha'),
+            TxtButton(buttonName: 'Asosiy sahifa',onPressed: () {
+              context.goNamed(HomeScreen.routeName);
+            },),
+            TxtButton(buttonName: 'Ishlab chiqaruvchilar',onPressed: () {},),
+            TxtButton(buttonName: 'Mahsulotlar', onPressed: () {},),
+            TxtButton(buttonName: 'Yangiliklar',onPressed: () {},),
+            TxtButton(buttonName: 'Slider',onPressed: () {},),
+            TxtButton(buttonName: 'Afisha',onPressed: () {},),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget txtButton(String buttonName) {
+class TxtButton extends StatelessWidget {
+  final String buttonName;
+  final VoidCallback onPressed; 
+  const TxtButton({super.key, required this.buttonName,required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 45),
+      padding: EdgeInsets.only(
+          right: MediaQuery.of(context).size.width > 800 ? 45 : 5),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           buttonName,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.w600,
