@@ -10,8 +10,6 @@ class HomeScreenProvider with ChangeNotifier {
     return _allCategories;
   }
 
-  
-
   Future<void> getAllCategory() async {
     Uri url =
         Uri.parse('https://catalog.pythonanywhere.com/api/get-all-category/');
@@ -20,10 +18,7 @@ class HomeScreenProvider with ChangeNotifier {
       final response =
           await http.get(url, headers: {'Content-Type': 'application/json'});
       List data = jsonDecode(response.body);
-      _allCategories = data
-          .map((e) => Category(
-              name: e['name'], id: e['id'], categoryimages: e['little_image']))
-          .toList();
+      _allCategories = data.map((e) => Category.getCategory(e)).toList();
 
       notifyListeners();
     } catch (error) {

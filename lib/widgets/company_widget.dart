@@ -1,17 +1,21 @@
-import 'package:catalog/screens/company_detail.dart';
+import 'package:catalog/providers/get_all_company.dart';
+import 'package:catalog/screens/company_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class CompanyWidget extends StatelessWidget {
-  const CompanyWidget({super.key});
+  final int categoryId;
+  const CompanyWidget({super.key,required this.categoryId});
 
   @override
   Widget build(BuildContext context) {
+    final products = Provider.of<GetAllCompany>(context).allCompany;
     final deviceSize = MediaQuery.of(context).size;
     return SizedBox(
       height: 770,
       child: GridView.builder(
-        itemCount: 41,
+        itemCount: products.length,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: deviceSize.width / 6,
           mainAxisExtent: deviceSize.width / 7,
@@ -20,7 +24,13 @@ class CompanyWidget extends StatelessWidget {
         ),
         itemBuilder: (context, index) => InkWell(
           onTap: () {
-            context.goNamed(CompanyDetail.routeName);
+            context.goNamed(
+              CompanyDetailScreen.routeName,
+              params: {
+                "categoryId":categoryId.toString(),
+                'companyId': products[index].id.toString(),
+              },
+            );
           },
           child: Container(
             decoration: BoxDecoration(
@@ -65,9 +75,9 @@ class CompanyWidget extends StatelessWidget {
                     ),
                   ),
                   alignment: Alignment.center,
-                  child: const Text(
-                    'Korxona nomi',
-                    style: TextStyle(
+                  child: Text(
+                    products[index].name,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

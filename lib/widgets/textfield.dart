@@ -30,7 +30,7 @@ class TextFieldForm extends StatelessWidget {
                 BoxShadow(
                   color: Color.fromRGBO(187, 253, 252, 1),
                   blurRadius: 20,
-                  offset: Offset(4, 8)
+                  offset: Offset(4, 8),
                 ),
               ],
             ),

@@ -18,12 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    // Provider.of<GetAllCategory>(context, listen: false).getAllCategory();
-    super.initState();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             .getAllCategory(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
@@ -42,17 +37,17 @@ class _HomeScreenState extends State<HomeScreen> {
           } else {
             return CustomScrollView(
               slivers: [
-                AppBarWidget(),
-                SliverToBoxAdapter(
+                const AppBarWidget(),
+                const SliverToBoxAdapter(
                   child: Divider(),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: TapBarWidget(),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: Divider(),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: SizedBox(height: 45),
                 ),
                 SliverToBoxAdapter(

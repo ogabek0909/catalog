@@ -1,7 +1,9 @@
+import 'package:catalog/models/company.dart';
 import 'package:flutter/material.dart';
 
 class CompanyProduct extends StatelessWidget {
-  const CompanyProduct({super.key});
+  final Company company;
+  const CompanyProduct({super.key,required this.company});
 
   @override
   Widget build(BuildContext context) {

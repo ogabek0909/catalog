@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class SliderAfishaWidgets extends StatefulWidget {
@@ -17,6 +19,34 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
   ];
 
   @override
+  void initState() {
+    Timer.periodic(
+      const Duration(seconds: 5),
+      (timer) {
+        if (_currentIndex < 2) {
+          _currentIndex += 1;
+        } else {
+          _currentIndex = 0;
+        }
+        if (_controller.hasClients) {
+          _controller.animateToPage(
+            _currentIndex,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOutSine,
+          );
+        }
+      },
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 55),
@@ -33,12 +63,17 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: PageView.builder(
+                      // allowImplicitScrolling: true,
+                      pageSnapping: true,
                       onPageChanged: (value) {
-                        Future.delayed(const Duration(milliseconds: 200), () {
-                          setState(() {
-                            _currentIndex = value;
-                          });
-                        });
+                        Future.delayed(
+                          const Duration(milliseconds: 200),
+                          () {
+                            setState(() {
+                              _currentIndex = value;
+                            });
+                          },
+                        );
                       },
                       controller: _controller,
                       itemCount: _pages.length,
@@ -75,13 +110,14 @@ class _SliderAfishaWidgetsState extends State<SliderAfishaWidgets> {
                                   children: const [
                                     Icon(
                                       Icons.calendar_today,
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       size: 18,
                                     ),
                                     // SizedBox(width: 5),
                                     Text(
                                       '01.02.2023',
                                       style: TextStyle(
+                                        color: Colors.white,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -208,7 +244,7 @@ class Afisha extends StatelessWidget {
                   children: const [
                     Icon(
                       Icons.announcement_outlined,
-                      color: Colors.black,
+                      color: Colors.white,
                       size: 18,
                     ),
                     // SizedBox(width: 5),
@@ -216,6 +252,7 @@ class Afisha extends StatelessWidget {
                       'E\'lon',
                       style: TextStyle(
                         fontSize: 20,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
